@@ -11,12 +11,19 @@ const HomeContainer = styled.div.attrs({
 })`
   width: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;
 `;
 
 const LargeTextSectionPlaceholder = styled.div.attrs({
   className: 'large-text-section'
 })`
   padding: 0 4rem;
+  
+  @media (max-width: 768px) {
+    padding: 0 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const LargeText = styled.div.attrs({
@@ -25,6 +32,18 @@ const LargeText = styled.div.attrs({
   font-size: 8rem;
   line-height: 1.2;
   font-weight: bold;
+  
+  @media (max-width: 1200px) {
+    font-size: 6rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 3.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const HomePage = () => {

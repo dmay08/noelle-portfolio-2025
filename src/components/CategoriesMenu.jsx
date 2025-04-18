@@ -15,6 +15,8 @@ const CategoriesMenuContainer = styled.div.attrs({
   justify-content: center;
   align-items: center;
   margin-bottom: 4rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
 `;
 
 const CategoriesRow = styled.div.attrs({
@@ -28,6 +30,19 @@ const CategoriesRow = styled.div.attrs({
   width: 100%;
   flex-wrap: wrap;
   padding: 0 1rem;
+  
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 0 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
 
 const CategoryItem = styled.span.attrs({
@@ -39,6 +54,12 @@ const CategoryItem = styled.span.attrs({
   font-size: 0.9rem;
   line-height: 1.8;
   margin: 0 2rem;
+  white-space: nowrap;
+  
+  @media (max-width: 768px) {
+    margin: 0 1rem;
+    font-size: 0.8rem;
+  }
 `;
 
 const Separator = styled.span.attrs({
@@ -50,6 +71,11 @@ const Separator = styled.span.attrs({
   margin: 0 1rem;
   font-size: 1.2rem;
   color: #444;
+  
+  @media (max-width: 768px) {
+    margin: 0 0.5rem;
+    font-size: 1rem;
+  }
 `;
 
 const CategoriesMenu = () => {

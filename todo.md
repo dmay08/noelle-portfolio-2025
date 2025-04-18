@@ -37,10 +37,10 @@ Use this checklist to track progress through each step of building Noelle's Reac
 ## Phase 2: Enhanced Components & Navigation
 
 ### Step 6: Navbar with Dropdown Menus
-- [ ] Create NavDropdown.js component
-- [ ] Update Navbar.js to use dropdowns
-- [ ] Implement hover and click behaviors
-- [ ] Add animations for dropdown appearance/disappearance
+- [x] Create NavDropdown.js component
+- [x] Update Navbar.js to use dropdowns
+- [x] Implement hover and click behaviors
+- [x] Add animations for dropdown appearance/disappearance
 
 ### Step 7: Large Text Section & Name Area
 - [ ] Create LargeTextSection.js component
@@ -59,8 +59,8 @@ Use this checklist to track progress through each step of building Noelle's Reac
 - [ ] Update ProjectPage.js to use content blocks
 
 ### Step 9: Mobile Responsiveness
-- [ ] Create MobileMenu.js component
-- [ ] Update Navbar.js for mobile view
+- [x] Create MobileMenu.js component
+- [x] Update Navbar.js for mobile view
 - [ ] Enhance ProjectGrid.js for mobile
 - [ ] Create responsive.js utilities
 - [ ] Update all components for responsive behavior
