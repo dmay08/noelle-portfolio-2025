@@ -14,6 +14,7 @@ const DropdownContainer = styled(motion.div)`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   z-index: 100;
+  pointer-events: ${props => props.$isOpen ? 'auto' : 'none'};
   
   @media (max-width: 768px) {
     width: 200px;
@@ -57,24 +58,19 @@ const dropdownVariants = {
   hidden: { 
     opacity: 0,
     y: -10,
-    height: 0
+    height: 0,
+    transition: {
+      duration: 0.15,
+      ease: 'easeIn'
+    }
   },
   visible: { 
     opacity: 1,
     y: 0,
     height: 'auto',
     transition: {
-      duration: 0.3,
-      ease: 'easeOut'
-    }
-  },
-  exit: {
-    opacity: 0,
-    y: -10,
-    height: 0,
-    transition: {
       duration: 0.2,
-      ease: 'easeIn'
+      ease: 'easeOut'
     }
   }
 };
@@ -125,16 +121,17 @@ const NavDropdown = ({
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpen && (
         <DropdownContainer
           ref={dropdownRef}
           initial="hidden"
           animate="visible"
-          exit="exit"
+          exit="hidden"
           variants={dropdownVariants}
           aria-hidden={!isOpen}
           role="menu"
+          $isOpen={isOpen}
         >
           <ProjectList>
             {projects.length > 0 ? (

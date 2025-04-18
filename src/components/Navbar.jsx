@@ -82,6 +82,9 @@ const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const closeTimeoutRef = useRef(null);
+  const navLinksRef = useRef(null);
+  const hoverIntentTimeoutRef = useRef(null);
+  const [isNavHovered, setIsNavHovered] = useState(false);
   
   // Detect touch device
   useEffect(() => {
@@ -98,41 +101,60 @@ const Navbar = () => {
       if (closeTimeoutRef.current) {
         clearTimeout(closeTimeoutRef.current);
       }
+      if (hoverIntentTimeoutRef.current) {
+        clearTimeout(hoverIntentTimeoutRef.current);
+      }
     };
   }, []);
   
+  const handleNavLinksEnter = () => {
+    setIsNavHovered(true);
+    // Clear any pending close timeouts when entering navbar area
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+  
+  const handleNavLinksLeave = () => {
+    setIsNavHovered(false);
+    // Set timeout to close dropdown when leaving navbar area
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+      closeTimeoutRef.current = null;
+    }, 200);
+  };
+  
   const handleMouseEnter = (categoryId) => {
     if (!isTouchDevice) {
-      // Clear any pending close timeout when entering a new item
+      // Clear any pending timeouts
       if (closeTimeoutRef.current) {
         clearTimeout(closeTimeoutRef.current);
         closeTimeoutRef.current = null;
       }
-      setOpenDropdown(categoryId);
+      
+      if (hoverIntentTimeoutRef.current) {
+        clearTimeout(hoverIntentTimeoutRef.current);
+      }
+      
+      // Use a small delay to prevent accidental triggering when quickly moving across items
+      hoverIntentTimeoutRef.current = setTimeout(() => {
+        setOpenDropdown(categoryId);
+        hoverIntentTimeoutRef.current = null;
+      }, 50);
     }
   };
   
   const handleMouseLeave = (categoryId) => {
     if (!isTouchDevice) {
-      // Use setTimeout to prevent flickering when moving between items
-      // Store the timeout ID so we can cancel it if necessary
-      closeTimeoutRef.current = setTimeout(() => {
-        // Only close if we're still showing the same dropdown
-        if (openDropdown === categoryId) {
-          setOpenDropdown(null);
-        }
-        closeTimeoutRef.current = null;
-      }, 150);
-    }
-  };
-  
-  const handleContainerLeave = () => {
-    if (!isTouchDevice) {
-      // When leaving the entire navbar links container, set a timeout to close
-      closeTimeoutRef.current = setTimeout(() => {
-        setOpenDropdown(null);
-        closeTimeoutRef.current = null;
-      }, 150);
+      // Clear any hover intent timeout
+      if (hoverIntentTimeoutRef.current) {
+        clearTimeout(hoverIntentTimeoutRef.current);
+        hoverIntentTimeoutRef.current = null;
+      }
+      
+      // Don't close immediately since the user might be moving to another item
+      // We'll rely on the nav container's mouseleave to handle closing
     }
   };
   
@@ -157,7 +179,11 @@ const Navbar = () => {
       </Logo>
       
       {/* Desktop Navigation */}
-      <NavLinks onMouseLeave={handleContainerLeave}>
+      <NavLinks
+        ref={navLinksRef}
+        onMouseEnter={handleNavLinksEnter}
+        onMouseLeave={handleNavLinksLeave}
+      >
         {categories.map(category => (
           <NavLinkContainer 
             key={category.id}
