@@ -5,28 +5,28 @@ Use this checklist to track progress through each step of building Noelle's Reac
 ## Phase 1: Project Setup & Core Structure
 
 ### Step 1: Project Initialization
-- [ ] Initialize React project (Create React App or Vite)
-- [ ] Install essential dependencies (react-router-dom, styled-components, framer-motion)
-- [ ] Create basic folder structure
-- [ ] Set up App.js with React Router
-- [ ] Create index.js entry point
+- [x] Initialize React project (Create React App or Vite)
+- [x] Install essential dependencies (react-router-dom, styled-components, framer-motion)
+- [x] Create basic folder structure
+- [x] Set up App.js with React Router
+- [x] Create index.js entry point
 
 ### Step 2: Project Data Structure
-- [ ] Create projects.js with data for all 10 portfolio projects
-- [ ] Create categories.js with the four main categories
-- [ ] Add placeholder paths for media assets
+- [x] Create projects.js with data for all 10 portfolio projects
+- [x] Create categories.js with the four main categories
+- [x] Add placeholder paths for media assets
 
 ### Step 3: Basic Layout Components
-- [ ] Create Layout.js component
-- [ ] Create basic Navbar.js component
-- [ ] Create simple HomePage.js
-- [ ] Set up routes in App.js
+- [x] Create Layout.js component
+- [x] Create basic Navbar.js component
+- [x] Create simple HomePage.js
+- [x] Set up routes in App.js
 
 ### Step 4: Project Showcase Grid
-- [ ] Create ProjectCard.js component
-- [ ] Create ProjectGrid.js component
-- [ ] Update HomePage.js to use ProjectGrid
-- [ ] Implement responsive grid layout
+- [X] Create ProjectCard.js component
+- [X] Create ProjectGrid.js component
+- [X] Update HomePage.js to use ProjectGrid
+- [X] Implement responsive grid layout
 
 ### Step 5: Basic Project Page
 - [ ] Create ProjectPage.js component
@@ -134,4 +134,4 @@ Use this checklist to track progress through each step of building Noelle's Reac
 - [ ] Set up CI/CD pipeline
 - [ ] Deploy to staging environment
 - [ ] Perform final checks
-- [ ] Deploy to production
+- [ ] Deploy to production 

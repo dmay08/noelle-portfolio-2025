@@ -1,26 +1,21 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import HomePage from './pages/HomePage';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">
-          <h1>Noelle Mayasich</h1>
-          <p>Creative Director</p>
-        </header>
-        <Routes>
-          <Route path="/" element={<div>Home Page</div>} />
-          <Route path="/about" element={<div>About Page</div>} />
-          <Route path="/work" element={<div>Work Page</div>} />
-          <Route path="/contact" element={<div>Contact Page</div>} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage  />}>
+
+        {/* TODO: Add routes for other pages */}
+          <Route path="category/:categoryId" element={<div>Category Page</div>} />
+          <Route path="project/:projectId" element={<div>Project Page</div>} />
+          <Route path="*" element={<div>Page Not Found</div>} />
+        </Route>
+      </Routes>
     </Router>
   );
 }
 
-export default App;
+export default App; 

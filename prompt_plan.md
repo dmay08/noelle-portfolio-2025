@@ -56,7 +56,7 @@ Please help me create:
    - description: short description
    - content: an array of content sections that can include different types of content blocks (text, image, video, etc.)
 
-2. Include the 10 specific projects mentioned in the spec:
+2. Include the 11 specific projects mentioned in the spec:
    - Google x Woocommerce
    - DoorDash Neighborhood Campaign
    - Google Play Live '22
@@ -67,6 +67,7 @@ Please help me create:
    - NBCU The Exorcist: Believer
    - Goodnites Youth Pants Campaign
    - HBO MAX Sex Lives of College Girls
+   - Coca-Cola Mexico Sin Azúcar
 
 3. A categories.js file that defines the four main categories with any relevant metadata
 
