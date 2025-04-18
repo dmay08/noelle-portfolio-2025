@@ -29,10 +29,10 @@ Use this checklist to track progress through each step of building Noelle's Reac
 - [X] Implement responsive grid layout
 
 ### Step 5: Basic Project Page
-- [ ] Create ProjectPage.js component
-- [ ] Update App.js with project routes
-- [ ] Update ProjectCard.js to link to project pages
-- [ ] Implement basic error handling for invalid project IDs
+- [x] Create ProjectPage.js component
+- [x] Update App.js with project routes
+- [x] Update ProjectCard.js to link to project pages
+- [x] Implement basic error handling for invalid project IDs
 
 ## Phase 2: Enhanced Components & Navigation
 

@@ -25,4 +25,4 @@ const categories = [
   }
 ];
 
-export default categories; 
+export { categories }; 

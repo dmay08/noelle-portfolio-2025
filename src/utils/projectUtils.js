@@ -1,5 +1,5 @@
-import projects from '../data/projects';
-import categories from '../data/categories';
+import { projects } from '../data/projects';
+import { categories } from '../data/categories';
 
 /**
  * Get all projects
